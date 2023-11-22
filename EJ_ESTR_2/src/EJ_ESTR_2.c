@@ -13,9 +13,8 @@
 #include "librEstr.h"
 
 int main(void) {
-	fraccion f1, f2;
+	fraccion f1, f2, f3;
 	int menu = -1;
-	float resultadoN, resultadoD;
 
 	puts("Primera fraccion:");
 
@@ -28,23 +27,32 @@ int main(void) {
 	mostrarFraccion(f2);
 
 	do{
-		printf("\n1.- Multiplicar");
-		printf("\n2.- Dividir");
+		printf("\n1.- Sumar");
+		printf("\n2.- Restar");
+		printf("\n3.- Multiplicar");
+		printf("\n4.- Dividir");
 		printf("\n0.- Salir");
 		printf("\nElige una opcion --> ");
 		fflush(stdout);		scanf("%i", &menu);
 
 		switch(menu)
 		{
-		case 1: resultadoN = f1.numerador * f2.numerador;
-				resultadoD = f1.denominador * f2.denominador;
-
-				printf("\n %.2f / %.2f = %.2f", resultadoN, resultadoD, resultadoN / resultadoD);
+		case 1:	sumarFraccion(&f1, &f2, &f3);
+				mostrarFraccion(f3);
+				printf("\nEl resultado es %.2f", (float)f3.numerador / f3.denominador);
 		break;
-		case 2:
-						resultadoN = f1.numerador * f2.denominador;
-						resultadoD = f1.denominador * f2.numerador;
-						printf("\n %.2f / %.2f = %.2f", resultadoN, resultadoD, resultadoN / resultadoD);
+		case 2:	restarFraccion(&f1, &f2, &f3);
+				mostrarFraccion(f3);
+				printf("\nEl resultado es %.2f", (float) f3.numerador / f3.denominador);
+		break;
+		case 3: multiplicarFraccion(&f1, &f2, &f3);
+				mostrarFraccion(f3);
+				printf("\nEl resultado es %.2f", (float) f3.numerador / f3.denominador);
+		break;
+		case 4:
+					dividirFraccion(&f1, &f2, &f3);
+					mostrarFraccion(f3);
+					printf("\nEl resultado es %.2f", (float) f3.numerador / f3.denominador);
 		break;
 		case 0: break;
 		break;

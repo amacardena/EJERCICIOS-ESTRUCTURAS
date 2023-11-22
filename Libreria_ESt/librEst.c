@@ -36,14 +36,62 @@ void mostrarPersona(personas per)
 void pedirFraccion(fraccion *frac)
 {
 	printf("\nIntroduce el numerador --> ");
-	fflush(stdout);		scanf("%f", &(frac->numerador));
+	fflush(stdout);		scanf("%i", &(frac->numerador));
 
 	printf("\nIntroduce el denominador --> ");
-	fflush(stdout);		scanf("%f", &(frac->denominador));
+	fflush(stdout);		scanf("%i", &(frac->denominador));
 }
 
 void mostrarFraccion(fraccion frac)
 {
-	printf("\nNumerador --> %.2f", frac.numerador);
-	printf("\nDenominador --> %.2f", frac.denominador);
+	printf("\nNumerador --> %i", frac.numerador);
+	printf("\nDenominador --> %i", frac.denominador);
+}
+
+void multiplicarFraccion(fraccion *f1, fraccion *f2, fraccion *f3)
+{
+	f3->numerador = f1->numerador * f2->numerador;
+	f3->denominador = f1->denominador * f2->denominador;
+}
+
+void dividirFraccion(fraccion *f1, fraccion *f2, fraccion *f3)
+{
+	f3->numerador = f1->numerador * f2->denominador;
+	f3->denominador = f1->denominador * f2->numerador;
+}
+
+void sumarFraccion(fraccion *f1, fraccion *f2, fraccion *f3)
+{
+	int mincom = mcm(f1->denominador, f2->denominador);
+	f3->denominador = mincom;
+	f3 ->numerador = f1->numerador*(mincom/f1->denominador) + f2->numerador*(mincom/f2->denominador);
+}
+
+void restarFraccion(fraccion *f1, fraccion *f2, fraccion *f3)
+{
+	int mincom = mcm(f1->denominador, f2->denominador);
+	f3->denominador = mincom;
+	f3 ->numerador = f1->numerador*(mincom/f1->denominador) - f2->numerador*(mincom/f2->denominador);
+}
+
+int mcd (int num1, int num2)
+{
+	int aux;
+
+	if (num1 % num2 == 0) return num2;
+	else {
+		do {
+			aux = num2;
+			num2 = num1 % num2;
+			num1 = aux;
+		} while (num1 % num2 != 0);
+
+		return num2;
+	}
+}
+
+int mcm (int num1, int num2)
+{
+	return (num1 * num2) / mcd(num1, num2);
+
 }
