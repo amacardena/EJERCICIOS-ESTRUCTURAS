@@ -33,4 +33,5 @@ void sumarFraccion(fraccion *f1, fraccion *f2, fraccion *f3);
 void restarFraccion(fraccion *f1, fraccion *f2, fraccion *f3);
 int mcm (int num1, int num2);
 int mcd (int num1, int num2);
+int simplificar (int num1, int den1, int den2);
 #endif /* LIBRESTR_H_ */
