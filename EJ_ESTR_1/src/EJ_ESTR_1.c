@@ -1,10 +1,10 @@
 /*
  ============================================================================
  Name        : EJ_ESTR_1.c
- Author      : 
+ Author      : Adrián Marín
  Version     :
  Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : EJ_1 de 6.  Introducir nombre, apellidos y edad de una persona
  ============================================================================
  */
 
@@ -14,6 +14,9 @@
 
 
 int main(void) {
-	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+	personas perso;
+
+	pedirPersona(&perso);
+	mostrarPersona(perso);
 	return EXIT_SUCCESS;
 }
