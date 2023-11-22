@@ -53,8 +53,7 @@ void multiplicarFraccion(fraccion *f1, fraccion *f2, fraccion *f3)
 {
 	f3->numerador = f1->numerador * f2->numerador;
 	f3->denominador = f1->denominador * f2->denominador;
-	f3 ->numerador = simplificar(f3->numerador, f1->denominador, f2->denominador);
-	f3 ->denominador = simplificar(f3->denominador, f1->denominador, f2->denominador);
+	simplificar(f3);
 
 }
 
@@ -62,8 +61,7 @@ void dividirFraccion(fraccion *f1, fraccion *f2, fraccion *f3)
 {
 	f3->numerador = f1->numerador * f2->denominador;
 	f3->denominador = f1->denominador * f2->numerador;
-	f3 ->numerador = simplificar(f3->numerador, f1->denominador, f2->denominador);
-	f3 ->denominador = simplificar(f3->denominador, f1->denominador, f2->denominador);
+	simplificar(f3);
 }
 
 void sumarFraccion(fraccion *f1, fraccion *f2, fraccion *f3)
@@ -71,8 +69,7 @@ void sumarFraccion(fraccion *f1, fraccion *f2, fraccion *f3)
 	int mincom = mcm(f1->denominador, f2->denominador);
 	f3->denominador = mincom;
 	f3 ->numerador = f1->numerador*(mincom/f1->denominador) + f2->numerador*(mincom/f2->denominador);
-	f3 ->numerador = simplificar(f3->numerador, f1->denominador, f2->denominador);
-	f3 ->denominador = simplificar(f3->denominador, f1->denominador, f2->denominador);
+	simplificar(f3);
 }
 
 void restarFraccion(fraccion *f1, fraccion *f2, fraccion *f3)
@@ -80,8 +77,7 @@ void restarFraccion(fraccion *f1, fraccion *f2, fraccion *f3)
 	int mincom = mcm(f1->denominador, f2->denominador);
 	f3->denominador = mincom;
 	f3 ->numerador = f1->numerador*(mincom/f1->denominador) - f2->numerador*(mincom/f2->denominador);
-	f3 ->numerador = simplificar(f3->numerador, f1->denominador, f2->denominador);
-	f3 ->denominador = simplificar(f3->denominador, f1->denominador, f2->denominador);
+	simplificar(f3);
 }
 
 int mcd (int num1, int num2)
@@ -106,7 +102,9 @@ int mcm (int num1, int num2)
 
 }
 
-int simplificar (int num1, int den1, int den2)
+void simplificar (fraccion * f)
 {
-	return num1 / mcd(den1, den2);
+	int m=mcd(f->numerador,f->denominador);
+	f->numerador=f->numerador/m;
+	f->denominador=f->denominador/m;
 }
