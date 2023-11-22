@@ -22,7 +22,7 @@ int main(void) {
 	pedirFraccion(&f1);
 	mostrarFraccion(f1);
 
-	puts("Segunda fraccion:");
+	puts("\n\nSegunda fraccion:");
 
 	pedirFraccion(&f2);
 	mostrarFraccion(f2);
