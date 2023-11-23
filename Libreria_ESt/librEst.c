@@ -158,3 +158,95 @@ void calcularIMC(pacientes pac[], int num)
 		pac[i].imc = pac[i].peso / pow(pac[i].altura, 2);
 	}
 }
+
+int esBisiesto(unsigned int anio) {
+	if (anio%4==0) {
+		if (anio%100==0 && anio%400!=0) {
+			return 0;
+		}else {
+			return 1;
+		}
+	}else {
+		return 0;
+	}
+}
+
+int numDias(int mes, int anio) {
+	if (mes==2) {
+		if (esBisiesto(anio)) { return 29;}
+		else { return 28;}
+	} else if (mes==4 || mes ==6 || mes == 9 || mes ==11) { return 30;}
+	else {
+		return 31;
+	}
+}
+
+int existeFecha(int dias, int mes, int anio)
+{
+	if(dias < 0 || dias > numDias(mes, anio) || mes < 0 || mes > 12 || anio < 0) return 0;
+	else return 1;
+}
+
+void pedirPers4(personas4 pers[], int num)
+{
+	int i;
+
+		for(i = 0; i < num; i++)
+		{
+			fflush(stdin);
+			printf("\n\nPersona %i :\n", i+1);
+
+			printf("\nIntroduce el nombre de la persona %i--> ", i+1);
+			fflush(stdout);		fgets(pers[i].nombre, MAXNOMBRE, stdin);
+
+			pers[i].nombre[strlen(pers[i].nombre) -1 ] = '\0';
+			pers[i].diaN = pers[i].mesN = pers[i].anioN = 0;
+
+			do {
+				printf("\nIntroduce el dia de nacimiento de %s --> ", pers[i].nombre);
+				fflush(stdout); scanf("%i", &(pers[i].diaN));
+
+
+				printf("\nIntroduce el mes de nacimiento de %s --> ", pers[i].nombre);
+				fflush(stdout); scanf("%i", &(pers[i].mesN));
+
+				printf("\nIntroduce el anio de nacimiento de %s --> ", pers[i].nombre);
+				fflush(stdout); scanf("%i", &(pers[i].anioN));
+
+				if(existeFecha(pers[i].diaN,pers[i].mesN,pers[i].anioN) == 0) printf("\nFecha no valida. Introducela de nuevo.\n");
+
+			} while(existeFecha(pers[i].diaN,pers[i].mesN,pers[i].anioN) == 0);
+		}
+}
+
+void mostrarPers4(personas4 pers[], int num)
+{
+	int i;
+
+		for(i = 0; i < num; i++)
+		{
+			printf("\nNombre --> %s", pers[i].nombre);
+			printf("\nDia de nacimiento --> %i", pers[i].diaN);
+			printf("\nMes de nacimiento --> %i", pers[i].mesN);
+			printf("\nAnio de nacimiento --> %i", pers[i].anioN);
+		}
+}
+
+void mostrarCumple(personas4 pers[], int num, int mes)
+{
+	int i;
+	printf("\nPersonas que cumplen anios en el mes %i: \n", mes);
+
+	for(i = 0; i < num; i++)
+	{
+		if(pers[i].mesN == mes)
+		{
+			printf("\nNombre --> %s", pers[i].nombre);
+			printf("\nDia de nacimiento --> %i", pers[i].diaN);
+			printf("\nMes de nacimiento --> %i", pers[i].mesN);
+			printf("\nAnio de nacimiento --> %i", pers[i].anioN);
+		}
+	}
+
+}
+
