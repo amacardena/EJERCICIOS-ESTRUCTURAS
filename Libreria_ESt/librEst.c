@@ -7,6 +7,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <math.h>
 #include "librEstr.h"
 
 void pedirPersona(personas *per)
@@ -107,4 +109,52 @@ void simplificar (fraccion * f)
 	int m=mcd(f->numerador,f->denominador);
 	f->numerador=f->numerador/m;
 	f->denominador=f->denominador/m;
+}
+
+void pedirPaciente(pacientes pac[], int num)
+{
+	int i;
+
+	for(i = 0; i < num; i++)
+	{
+			fflush(stdin);
+		printf("\n\nPaciente %i :\n", i+1);
+
+		printf("\nIntroduce el nombre del paciente %i--> ", i+1);
+		fflush(stdout);		fgets(pac[i].nombre, MAXNOMBRE, stdin);
+
+		pac[i].nombre[strlen(pac[i].nombre) -1 ] = '\0';
+
+		printf("\nIntroduce el peso del paciente %s --> ", pac[i].nombre);
+		fflush(stdout);		scanf("%f", &(pac[i].peso));
+
+		printf("\nIntroduce la altura del paciente %s --> ", pac[i].nombre);
+		fflush(stdout);		scanf("%f", &(pac[i].altura));
+	}
+}
+
+void mostrarPaciente(pacientes pac[], int num)
+{
+	int i;
+
+	for(i = 0; i < num; i++)
+	{
+
+		printf("\n\nPaciente %i :\n", i+1);
+
+		printf("\nNombre --> %s", pac[i].nombre);
+		printf("\nPeso --> %.2f", pac[i].peso);
+		printf("\nAltura --> %.2f", pac[i].altura);
+		printf("\nIMC --> %.2f", pac[i].imc);
+	}
+}
+
+void calcularIMC(pacientes pac[], int num)
+{
+	int i;
+
+	for(i = 0; i < num; i++)
+	{
+		pac[i].imc = pac[i].peso / pow(pac[i].altura, 2);
+	}
 }
