@@ -250,3 +250,31 @@ void mostrarCumple(personas4 pers[], int num, int mes)
 
 }
 
+void pedirCarrito(compra carro[], int *num)
+{
+	int i;
+
+	for(i = 0; i < *num; i++)
+	{
+		carro[i].cantidad = carro[i].precio = 0;
+		carro[i].iva= 0.21;
+		fflush(stdin);
+
+		printf("\nIntroduce el nombre del articulo --> ");
+		fflush(stdout); 	fgets(carro[i].nombre, MAXNOMBRE, stdin);
+
+		carro[i].nombre[strlen(carro[i].nombre) -1] = '\0';
+
+		do {
+			printf("\nIntroduce el precio de los %s (eur/kg) --> ", carro[i].nombre);
+			fflush(stdout);		scanf("%f", &(carro[i].precio));
+		} while(carro[i].precio < 0);
+
+		do {
+			printf("\nIntroduce cantidad de los kilos de los %s --> ", carro[i].nombre);
+			fflush(stdout);		scanf("%f", &(carro[i].cantidad));
+		} while(carro[i].cantidad < 0);
+
+	}
+
+}

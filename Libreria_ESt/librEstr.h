@@ -11,6 +11,7 @@
 #define MAXAPELLIDO 30
 #define MAXPAC 3
 #define MAXPERS4 8
+#define MAXCOMPRA 10
 typedef struct
 {
 	char nombre[MAXNOMBRE];
@@ -40,12 +41,20 @@ typedef struct
 	int anioN;
 } personas4;
 
+typedef struct
+{
+	char nombre[MAXNOMBRE];
+	float precio;
+	float iva;
+	float cantidad;
+} compra;
 void pedirPersona(personas *per);
 void mostrarPersona(personas per);
 void pedirPaciente(pacientes pac[], int num);
 void mostrarPaciente(pacientes pac[], int num);
 void pedirPers4(personas4 pers[], int num);
 void mostrarPers4(personas4 pers[], int num);
+void pedirCarrito(compra carro[], int *num);
 void mostrarCumple(personas4 pers[], int num, int mes);
 void pedirFraccion(fraccion *frac);
 void mostrarFraccion(fraccion frac);
