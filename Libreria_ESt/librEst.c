@@ -296,3 +296,11 @@ double aplicarIVA(compra carro[], int num)
 	}
 	return salida;
 }
+
+void mostrarPers5(persEj5 pers[], int num)
+{
+		printf("\n\nNombre --> %s", pers[num].nombre);
+		printf("\nDireccion --> %s", pers[num].direccion);
+		printf("\nTelefono --> %i", pers[num].telefono);
+		printf("\nEdad --> %i", pers[num].edad);
+}

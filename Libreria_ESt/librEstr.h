@@ -66,6 +66,7 @@ void pedirPaciente(pacientes pac[], int num);
 void mostrarPaciente(pacientes pac[], int num);
 void pedirPers4(personas4 pers[], int num);
 void mostrarPers4(personas4 pers[], int num);
+void mostrarPers5(persEj5 pers[], int num);
 void pedirCarrito(compra carro[], int *num);
 void mostrarCumple(personas4 pers[], int num, int mes);
 void pedirFraccion(fraccion *frac);
