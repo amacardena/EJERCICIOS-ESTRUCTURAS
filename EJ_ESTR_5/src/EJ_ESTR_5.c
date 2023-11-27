@@ -43,7 +43,6 @@ int main(void) {
 			i++;
 		}
 		else break;
-
 	} while(i < MAXEJ5);
 
 	printf("\nValor de i --> %i", i);
