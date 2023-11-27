@@ -14,7 +14,8 @@
 
 int main(void) {
 	compra carrito[MAXCOMPRA];
-	int menu = -1, j =1;
+	int menu = -1, j =0;
+//	double subtotal;
 
 	do {
 		printf("\n\n1.- Agregar objetos al carrito");
@@ -27,14 +28,14 @@ int main(void) {
 
 		switch(menu)
 		{
-			case 1: pedirCarrito(carrito, &j);
-					j++;
+			case 1:	pedirCarrito(carrito, &j);
 			break;
 			case 2:
+					printf("\nEl subtotal es --> %.2lf",subtotal(carrito, j));
 			break;
-			case 3:
+			case 3: printf("\nEl iva del producto es --> %.2lf",aplicarIVA(carrito, j));
 			break;
-			case 4:
+			case 4: printf("\nEl total del carrito es --> %.2lf", subtotal(carrito, j) + aplicarIVA(carrito, j));
 			break;
 			case 0: break;
 			break;

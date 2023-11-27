@@ -68,4 +68,6 @@ void simplificar (fraccion *f);
 void calcularIMC(pacientes pac[], int num);
 int esBisiesto(unsigned int anio);
 int existeFecha(int dias, int mes, int anio);
+double subtotal(compra carro[], int num);
+double aplicarIVA(compra carro[], int num);
 #endif /* LIBRESTR_H_ */

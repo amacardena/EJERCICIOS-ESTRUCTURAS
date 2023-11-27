@@ -252,29 +252,47 @@ void mostrarCumple(personas4 pers[], int num, int mes)
 
 void pedirCarrito(compra carro[], int *num)
 {
-	int i;
 
-	for(i = 0; i < *num; i++)
-	{
-		carro[i].cantidad = carro[i].precio = 0;
-		carro[i].iva= 0.21;
+		carro[*num].cantidad = carro[*num].precio = -1;
+		carro[*num].iva= 0.21;
 		fflush(stdin);
 
 		printf("\nIntroduce el nombre del articulo --> ");
-		fflush(stdout); 	fgets(carro[i].nombre, MAXNOMBRE, stdin);
+		fflush(stdout); 	fgets(carro[*num].nombre, MAXNOMBRE, stdin);
 
-		carro[i].nombre[strlen(carro[i].nombre) -1] = '\0';
-
-		do {
-			printf("\nIntroduce el precio de los %s (eur/kg) --> ", carro[i].nombre);
-			fflush(stdout);		scanf("%f", &(carro[i].precio));
-		} while(carro[i].precio < 0);
+		carro[*num].nombre[strlen(carro[*num].nombre) -1] = '\0';
 
 		do {
-			printf("\nIntroduce cantidad de los kilos de los %s --> ", carro[i].nombre);
-			fflush(stdout);		scanf("%f", &(carro[i].cantidad));
-		} while(carro[i].cantidad < 0);
+			printf("\nIntroduce el precio de los %s (eur/kg) --> ", carro[*num].nombre);
+			fflush(stdout);		scanf("%f", &(carro[*num].precio));
+		} while(carro[*num].precio < 0);
 
+		do {
+			printf("\nIntroduce cantidad de los kilos de los %s --> ", carro[*num].nombre);
+			fflush(stdout);		scanf("%f", &(carro[*num].cantidad));
+		} while(carro[*num].cantidad < 0);
+
+	(*num)++;
+}
+
+double subtotal(compra carro[], int num)
+{
+	double salida = 0;
+	int i;
+	for(i = 0; i < num; i++)
+	{
+		salida = salida + carro[i].precio * carro[i].cantidad;
 	}
+	return salida;
+}
 
+double aplicarIVA(compra carro[], int num)
+{
+	double salida = 0;
+	int i;
+	for(i = 0; i < num; i++)
+	{
+		salida = salida + carro[i].precio *carro[i].cantidad * carro[i].iva;
+	}
+	return salida;
 }
