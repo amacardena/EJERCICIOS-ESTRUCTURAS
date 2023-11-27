@@ -45,7 +45,6 @@ int main(void) {
 		else break;
 	} while(i < MAXEJ5);
 
-	printf("\nValor de i --> %i", i);
 	do
 	{
 		fflush(stdin);
@@ -65,7 +64,8 @@ int main(void) {
 					mostrarPers5(lista, j);
 				}
 			break;
-			case 2: edadUsuario = -1;
+			case 2:
+				edadUsuario = -1;
 					do {
 						printf("\nIntroduce la edad de las personas que estas buscando --> ");
 						fflush(stdout);		scanf("%i", &edadUsuario);
@@ -80,7 +80,8 @@ int main(void) {
 						}
 					}
 			break;
-			case 3:	fflush(stdin);
+			case 3:
+				fflush(stdin);
 					printf("\nIntroduce la inicial de las personas que quieres buscar --> ");
 					fflush(stdout);	inicialUsuario=toupper(getchar());
 					fflush(stdin);
