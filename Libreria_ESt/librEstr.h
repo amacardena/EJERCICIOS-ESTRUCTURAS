@@ -12,6 +12,9 @@
 #define MAXPAC 3
 #define MAXPERS4 8
 #define MAXCOMPRA 10
+#define MAXDIRECCION 60
+#define MAXEJ5 50
+
 typedef struct
 {
 	char nombre[MAXNOMBRE];
@@ -48,6 +51,15 @@ typedef struct
 	float iva;
 	float cantidad;
 } compra;
+
+typedef struct
+{
+	char nombre[MAXNOMBRE];
+	char direccion[MAXDIRECCION];
+	int telefono;
+	int edad;
+} persEj5;
+
 void pedirPersona(personas *per);
 void mostrarPersona(personas per);
 void pedirPaciente(pacientes pac[], int num);
