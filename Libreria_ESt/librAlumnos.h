@@ -10,7 +10,7 @@
 #define MAXALUMNOS 100
 #define MAXNOMBRE 100
 #define MAXDNI 10
-#define MAXCURSO 4
+#define MAXCURSO 3
 #define MAXPENDIENTES 15
 #define MAXASIGNATURAS 3
 

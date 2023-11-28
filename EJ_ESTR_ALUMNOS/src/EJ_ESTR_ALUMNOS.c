@@ -16,6 +16,7 @@
 int main(void) {
 	alumnos lista[MAXALUMNOS];
 	int cont = 0, i;
+	int cursoUsuario = -1;
 	char menu = 'z';
 
 	do {
@@ -34,26 +35,40 @@ int main(void) {
 
 		switch(menu)
 		{
-		case 'a':	pedirAlumnos(lista, &cont);
+		case 'a':	//AGREGAR ALUMNOS A LA LISTA
+				pedirAlumnos(lista, &cont);
 		break;
-		case 'b':
+		case 'b': //MOSTRAR TODOS LOS ALUMNOS
 				for(i = 0; i < cont; i++)
 				{
 					printf("\n\nAlumno numero %i: \n", i+1);
 					mostrarAlumnos(lista, i);
 				}
 		break;
-		case 'c':
+		case 'c': //MOSTRAR LOS ALUMNOS DE X CURSO
+				do {
+					printf("\nIntroduce el curso de los alumnos --> ");
+					fflush(stdout);		scanf("%i", &cursoUsuario);
+				} while(cursoUsuario < 1 || cursoUsuario > MAXCURSO);
+
+				for(i = 0; i < cont; i++)
+				{
+					if(lista[i].curso == cursoUsuario)
+					{
+						printf("\n\nAlumno %i :\n", i+1);
+						mostrarAlumnos(lista, i);
+					}
+				}
 		break;
-		case 'd':
+		case 'd': //MOSTRAR LOS ALUMNOS QUE LE QUEDEN MENOS DE 3 ASIGNATURAS PARA TERMINAR LA CARRERA
 		break;
-		case 'e':
+		case 'e': //MOSTRAR LOS ALUMNOS QUE SE LLAMEN COMO NOS DIGA EL USUARIO
 		break;
-		case 'f':
+		case 'f': //MOSTRAR LOS ALUMNOS QUE SE LLAMEN COMO NOS DIGA EL USUARIO Y ESTEN EN X CURSO
 		break;
-		case 'g':
+		case 'g': //SACAR LOS ALUMNOS QUE TENGAN MAS ASIGNATURAS DE 1º QUE DE 2º Y 3º JUNTAS
 		break;
-		case 'h':
+		case 'h': //APROBAR A TODOS LOS ALUMNOS DE 3º UNA
 		break;
 		case 'i': break;
 		break;
