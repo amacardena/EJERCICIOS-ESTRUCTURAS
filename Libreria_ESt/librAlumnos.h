@@ -10,6 +10,8 @@
 #define MAXALUMNOS 100
 #define MAXNOMBRE 100
 #define MAXDNI 10
+#define MAXCURSO 4
+#define MAXPENDIENTES 15
 #define MAXASIGNATURAS 3
 
 typedef struct
@@ -21,6 +23,6 @@ typedef struct
 }alumnos;
 
 void pedirAlumnos(alumnos list[], int *num);
-
+void mostrarAlumnos(alumnos list[], int num);
 
 #endif /* LIBRALUMNOS_H_ */

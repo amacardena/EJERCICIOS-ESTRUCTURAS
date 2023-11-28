@@ -15,7 +15,7 @@
 
 int main(void) {
 	alumnos lista[MAXALUMNOS];
-	int cont = 0;
+	int cont = 0, i;
 	char menu = 'z';
 
 	do {
@@ -30,13 +30,18 @@ int main(void) {
 		printf("\nh) Debido a un aprobado general de una asignatura de tercero, hay que reducir el numero de asignaturas de tercero de todos los alumnos en 1, excepto de aquellos que ya hayan aprobado");
 		printf("\ni) Salir");
 		printf("\nElige una opcion --> ");
-		fflush(stdout); 	menu = tolower(getchar());
+		fflush(stdout); 	menu = tolower(getchar());	fflush(stdin);
 
 		switch(menu)
 		{
-		case 'a':
+		case 'a':	pedirAlumnos(lista, &cont);
 		break;
 		case 'b':
+				for(i = 0; i < cont; i++)
+				{
+					printf("\n\nAlumno numero %i: \n", i+1);
+					mostrarAlumnos(lista, i);
+				}
 		break;
 		case 'c':
 		break;
