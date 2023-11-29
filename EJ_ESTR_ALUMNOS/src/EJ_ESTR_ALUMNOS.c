@@ -39,26 +39,16 @@ int main(void) {
 				pedirAlumnos(lista, &cont);
 		break;
 		case 'b': //MOSTRAR TODOS LOS ALUMNOS
-				for(i = 0; i < cont; i++)
-				{
-					printf("\n\nAlumno numero %i: \n", i+1);
-					mostrarAlumnos(lista, i);
-				}
+					mostrarTodosAlumnos(lista, cont);
+
 		break;
 		case 'c': //MOSTRAR LOS ALUMNOS DE X CURSO
 				do {
-					printf("\nIntroduce el curso de los alumnos --> ");
+					printf("\nIntroduce el curso de los alumnos (1 - %i) --> ", MAXCURSO);
 					fflush(stdout);		scanf("%i", &cursoUsuario);
 				} while(cursoUsuario < 1 || cursoUsuario > MAXCURSO);
 
-				for(i = 0; i < cont; i++)
-				{
-					if(lista[i].curso == cursoUsuario)
-					{
-						printf("\n\nAlumno %i :\n", i+1);
-						mostrarAlumnos(lista, i);
-					}
-				}
+						mostrarAlumnosXCurso(lista, cont, cursoUsuario);
 		break;
 		case 'd': //MOSTRAR LOS ALUMNOS QUE LE QUEDEN MENOS DE 3 ASIGNATURAS PARA TERMINAR LA CARRERA
 		break;

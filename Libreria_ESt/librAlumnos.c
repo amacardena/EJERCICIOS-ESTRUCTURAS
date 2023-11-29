@@ -37,24 +37,57 @@ void pedirAlumnos(alumnos list[], int *num)
 	{
 		list[*num].asignaturas[i] = -1;
 		do {
-			printf("\nIntroduce las asignaturas pendientes del curso %i (1 - %i) --> ", i+1, MAXPENDIENTES);
+			printf("\nIntroduce las asignaturas pendientes del curso %i (0 - %i) --> ", i+1, MAXPENDIENTES);
 			fflush(stdout); 	scanf("%i", &list[*num].asignaturas[i]);
 		} while (list[*num].asignaturas[i] < 0 || list[*num].asignaturas[i] > MAXPENDIENTES);
 	}
 	(*num)++;
 }
 
-void mostrarAlumnos(alumnos list[], int num)
+void mostrarTodosAlumnos(alumnos list[], int num)
+{
+	int i, j;
+	for(i = 0; i < num; i++)
+	{
+		printf("\n\nAlumno %i : \n", i+1);
+
+		printf("\nNombre --> %s", list[i].nombre);
+		printf("\nDNI --> %s", list[i].dni);
+		printf("\nCURSO --> %i", list[i].curso);
+
+		for(j = 0; j < list[i].curso; j++)
+		{
+				printf("\nAsignaturas pendientes del curso %i --> %i", j+1, list[i].asignaturas[j]);
+		}
+	}
+	printf("\n");
+}
+
+void mostrarAlumnosXCurso(alumnos list[], int num, int curso)
 {
 	int i;
+	for(i = 0; i < num; i++)
+	{
+		if(list[i].curso == curso)
+		{
+			mostrarSoloAlumno(list, i);
+		}
+	}
+	printf("\n");
+}
+
+void mostrarSoloAlumno(alumnos list[], int num)
+{
+	int j;
+
+	printf("\n\nAlumno %i : \n", num+1);
+
 	printf("\nNombre --> %s", list[num].nombre);
 	printf("\nDNI --> %s", list[num].dni);
 	printf("\nCURSO --> %i", list[num].curso);
 
-	for(i = 0; i < list[num].curso; i++)
+	for(j = 0; j < list[num].curso; j++)
 	{
-			printf("\nAsignaturas pendientes del curso %i --> %i", i+1, list[num].asignaturas[i]);
+		printf("\nAsignaturas pendientes del curso %i --> %i", j+1, list[num].asignaturas[j]);
 	}
-
-	printf("\n");
 }
