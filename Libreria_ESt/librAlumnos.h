@@ -27,5 +27,5 @@ void mostrarTodosAlumnos(alumnos list[], int num);
 void mostrarAlumnosXCurso(alumnos list[], int num, int curso);
 void mostrarSoloAlumno(alumnos list[], int num);
 void mostrarAlumnosFinCarrera(alumnos list[], int num);
-
+void mostrarAlumnosXNombre(alumnos list[], int num, char nombre[]);
 #endif /* LIBRALUMNOS_H_ */

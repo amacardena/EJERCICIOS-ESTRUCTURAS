@@ -10,12 +10,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <ctype.h>
 #include "librAlumnos.h"
 
 int main(void) {
 	alumnos lista[MAXALUMNOS];
-	int cont = 0, i;
+	char nombreUsuario[MAXNOMBRE];
+	int cont = 0;
 	int cursoUsuario = -1;
 	char menu = 'z';
 
@@ -54,6 +56,13 @@ int main(void) {
 				mostrarAlumnosFinCarrera(lista, cont);
 		break;
 		case 'e': //MOSTRAR LOS ALUMNOS QUE SE LLAMEN COMO NOS DIGA EL USUARIO
+					fflush(stdin);
+					printf("\nIntroduce el nombre del alumno que quieres buscar --> ");
+					fflush(stdout);		fgets(nombreUsuario, MAXNOMBRE, stdin);
+
+				nombreUsuario[strlen(nombreUsuario) -1] = '\0';
+
+				mostrarAlumnosXNombre(lista, cont, nombreUsuario);
 		break;
 		case 'f': //MOSTRAR LOS ALUMNOS QUE SE LLAMEN COMO NOS DIGA EL USUARIO Y ESTEN EN X CURSO
 		break;

@@ -113,3 +113,13 @@ void mostrarAlumnosFinCarrera(alumnos list[], int num)
 		}
 	}
 }
+
+void mostrarAlumnosXNombre(alumnos list[], int num, char nombre[])
+{
+	int i;
+
+	for(i = 0; i < num; i++)
+	{
+		if(strcmp(nombre, list[i].nombre) == 0) mostrarSoloAlumno(list, i);
+	}
+}
