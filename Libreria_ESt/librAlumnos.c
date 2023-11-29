@@ -90,4 +90,26 @@ void mostrarSoloAlumno(alumnos list[], int num)
 	{
 		printf("\nAsignaturas pendientes del curso %i --> %i", j+1, list[num].asignaturas[j]);
 	}
+
+	printf("\n");
+}
+
+void mostrarAlumnosFinCarrera(alumnos list[], int num)
+{
+	int i, j, acum = 0;
+
+	for(i = 0; i < num; i++)
+	{
+		acum = 0;
+
+		if(list[i].curso == 3)
+		{
+			for(j = 0; j < 3; j++)
+			{
+				acum += list[i].asignaturas[j];
+			}
+
+			if(acum <= 3) mostrarSoloAlumno(list, i);
+		}
+	}
 }

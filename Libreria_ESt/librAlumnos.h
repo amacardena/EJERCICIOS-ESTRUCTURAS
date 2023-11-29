@@ -26,5 +26,6 @@ void pedirAlumnos(alumnos list[], int *num);
 void mostrarTodosAlumnos(alumnos list[], int num);
 void mostrarAlumnosXCurso(alumnos list[], int num, int curso);
 void mostrarSoloAlumno(alumnos list[], int num);
+void mostrarAlumnosFinCarrera(alumnos list[], int num);
 
 #endif /* LIBRALUMNOS_H_ */

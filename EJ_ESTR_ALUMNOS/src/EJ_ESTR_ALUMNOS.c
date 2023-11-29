@@ -51,6 +51,7 @@ int main(void) {
 						mostrarAlumnosXCurso(lista, cont, cursoUsuario);
 		break;
 		case 'd': //MOSTRAR LOS ALUMNOS QUE LE QUEDEN MENOS DE 3 ASIGNATURAS PARA TERMINAR LA CARRERA
+				mostrarAlumnosFinCarrera(lista, cont);
 		break;
 		case 'e': //MOSTRAR LOS ALUMNOS QUE SE LLAMEN COMO NOS DIGA EL USUARIO
 		break;
